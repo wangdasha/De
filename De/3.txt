@@ -1,0 +1,34 @@
+#include"stdio.h"
+#include"stdlib.h"
+typedef struct _DNode
+{
+	int data;
+	
+	struct _DNode *next;//ºóÇıÖ¸Õë
+}DNode;
+
+int main()
+{
+	DNode *head,*p,*q;
+	head=NULL;
+	p=(DNode *)malloc(sizeof(DNode));
+	head=p;
+	q=head;
+	scanf("%d",&p->data);
+	while(p->data!=0)
+	{
+		q=(DNode *)malloc(sizeof(DNode));
+		p->next=q;
+	
+		p=q;
+		scanf("%d",&q->data);
+		p->next=NULL;
+	}
+	p=head;
+	while(p->next!=NULL)
+	{
+		printf("%d",p->data);
+		p=p->next;
+	}
+	return 0;
+}
